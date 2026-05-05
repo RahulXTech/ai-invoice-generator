@@ -13,7 +13,7 @@ if(!PUBLISHABLE_KEY){
 
 
 createRoot(document.getElementById('root')).render(
-  <ClerkProvider pub>
+  <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
     <App />
   </ClerkProvider>,
 )
