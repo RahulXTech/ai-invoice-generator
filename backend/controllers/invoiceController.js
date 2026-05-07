@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import Invoice from "../models/invoiceModel.js";
 import { getAuth } from "@clerk/express";
-import { isValidElement } from "react";
 import path from 'path'
 const API_BASE = 'http://localhost:4000';
 
@@ -436,3 +435,15 @@ export async function deleteInvoice(req, res) {
       })
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
