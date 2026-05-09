@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import validator from "validator";
+
+const { isLowercase, trim } = validator;
 
 const ItemSchema = new mongoose.Schema({
     id: {
@@ -61,6 +64,8 @@ const invoiceSchema = new mongoose.Schema({
       phone: { type: String, default: "" },
     },
 
+    items : {type : String, default: "INR"},
+    
     currency: { type: String, default: "INR" },
     status: { type: String, enum: ["draft", "unpaid", "paid", "overdue"], default: "draft" },
 

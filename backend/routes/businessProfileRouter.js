@@ -1,8 +1,15 @@
 import express from 'express'
 import multer from 'multer'
+import path from 'path'
+
+import mongoose from "mongoose";
+import validator from "validator";
+
+const { isLowercase, trim } = validator;
 
 import { clerkMiddleware } from '@clerk/express'
 import { createBusinessProfile, getMyBusinessProfile, updateBusinessProfile } from '../controllers/businessProfileController.js';
+
 const businessProfileRouter = express.Router();
 
 businessProfileRouter.use(clerkMiddleware());
@@ -22,7 +29,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 
 //create
-businessProfileRouter(
+businessProfileRouter.post(
     "/",
     upload.fields([
         {name : "logoName", maxCount : 1},
@@ -45,6 +52,5 @@ businessProfileRouter.put(
 );
 
 businessProfileRouter.get("/me", getMyBusinessProfile);
-
 
 export default businessProfileRouter;

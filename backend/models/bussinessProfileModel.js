@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
-import { isLowercase, trim } from "validator";
+import validator from "validator";
 
+const { isLowercase, trim } = validator;
 const businessProfileSchema = new mongoose.Schema({
     owner : {type : String, required : true, index : true},
     businessName : {type : String, required : true},
